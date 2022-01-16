@@ -53,6 +53,10 @@
                 <span class="navbar-text text-muted">
                     adventures of a software developer
                 </span>
+                <form class="d-flex" method="GET" action="{% url 'searchResults' %}">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form>
             </div>
         </div>
     </nav>
@@ -90,7 +94,7 @@
             let messages = document.getElementById('msg');
             let alert = new bootstrap.Alert(messages);
             alert.close();
-        }, 2500);
+        }, 5500);
     </script>
     
 </body>

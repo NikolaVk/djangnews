@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
 from django.contrib import messages
+from django.db.models import Q
 
 
 class PostList(generic.ListView):
@@ -11,6 +12,29 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = "index.html"
     paginate_by = 6
+
+
+def searchResults(request):
+
+    post = Post.objects.all()
+    query = None
+    print(post)
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "We could find any posts by that name!")
+                return redirect(reverse('searchResults'))
+
+            queries = Q(title__icontains=query) | Q(content__icontains=query)
+            post = post.filter(queries)
+
+    context = {
+        'post': post,
+        'search_term': query,
+    }
+
+    return render(request, 'searchResults.html', context)
 
 
 class PostDetail(View):
@@ -69,7 +93,7 @@ class PostDetail(View):
 
 
 class PostLike(View):
-    
+
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
