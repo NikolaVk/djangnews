@@ -17,47 +17,81 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+    <link rel="icon" type="image/png" href="/static/images/favicon.png">
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">c<span class="red-o">o</span>de<span
-                        class="thin">|star</span></span></span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                    </li>
-                    {% endif %}
-                </ul>
-                <span class="navbar-text text-muted">
-                    adventures of a software developer
-                </span>
-                <form class="d-flex" method="GET" action="{% url 'searchResults' %}">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="nav-block">
+            <div class="row g-0">
+                <div class="col-sm-12 col-lg-2">
+                    <div class="row g-0">
+                    <div class="col-10">
+                        <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-globe-europe logo" ></i><span  class="logod">Djang</span><span class="logon">News</span></a>
+                    </div>
+                    <div class="col-2">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"><i class="fas fa-bars ham"></i></span>
+                        </button>
+                    </div>
+                </div>
+                </div>
+                <div class="col-10 collapse navbar-collapse" id="navbarText">
+                <div class="col-3 col-md-5">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">                                           
+                        <li class="nav-item">
+                            <a class="nav-link text-white active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-red" href="#">Breaking News</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Categories
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">World</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Tech</a></li>
+                                <li><a class="dropdown-item" href="#">Business</a></li>
+                                <li><a class="dropdown-item" href="#">Sports</a></li>
+                                <li><a class="dropdown-item" href="#">Travel</a></li>
+                                <li><a class="dropdown-item" href="#">Media and entertainment</a></li>
+                              </ul>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <div class="col-lg-4 col-md-2 col-sm-12">
+                    <form class="d-flex" method="GET" action="{% url 'searchResults' %}">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                        <button class="btn btn-outline searchbutton" type="submit">Search</button>
+                    </form>  
+                </div>
+                <div class="col-3 col-md-3">
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{% url 'account_signup' %}">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{% url 'account_login' %}">Login</a>
+                            </li>
+                            {% endif %}                
+                        </ul> 
+                    </div>
+                </div>
             </div>
+        </div>
         </div>
     </nav>
 
@@ -81,9 +115,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 dark-bg">
-        <p class="m-0 text-center text-white">Made by Code Instituters</p>
-        <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
+    <footer class="footer mt-auto py-3 bg-dark">
+        <p class="m-0 text-center text-white">© 2022 Nikola Vukomanović</p>
+        <p class="m-0 text-center text-white"><i class="fab fa-facebook-square ms-3"></i>
             <i class="fab fa-twitter-square ms-3"></i>
             <i class="fab fa-instagram-square ms-3"></i>
             <i class="fab fa-youtube-square ms-3"></i></p>

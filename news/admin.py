@@ -4,6 +4,7 @@ from django_summernote.admin import SummernoteModelAdmin
 
 admin.site.register(Category)
 
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'name',)
