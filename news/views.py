@@ -18,16 +18,23 @@ def searchResults(request):
 
     post = Post.objects.all()
     query = None
-    print(post)
     if request.GET:
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "We could find any posts by that name!")
+                messages.error(request, "Please type something in")
                 return redirect(reverse('searchResults'))
 
             queries = Q(title__icontains=query) | Q(content__icontains=query)
+            print(queries)
             post = post.filter(queries)
+
+            print(post)
+
+            if post:
+                print("test")
+            else:
+                messages.error(request, "We could't find any posts by that name!")
 
     context = {
         'post': post,
@@ -102,3 +109,79 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+def tech(request):
+    post = Post.objects.all()
+    techpost = post.filter(category__name__contains="Tech")
+
+    context = {
+        "techpost": techpost,
+    }
+
+    return render(request, 'tech.html', context)
+
+
+def world(request):
+    post = Post.objects.all()
+    worldpost = post.filter(category__name__contains="World")
+
+    context = {
+        "worldpost": worldpost,
+    }
+
+    return render(request, 'world.html', context)
+
+def sport(request):
+    post = Post.objects.all()
+    sportpost = post.filter(category__name__contains="Sport")
+
+    context = {
+        "sportpost": sportpost,
+    }
+
+    return render(request, 'sport.html', context)
+
+
+def business(request):
+    post = Post.objects.all()
+    businesspost = post.filter(category__name__contains="Business")
+
+    context = {
+        "businesspost": businesspost,
+    }
+
+    return render(request, 'business.html', context)
+
+
+def travel(request):
+    post = Post.objects.all()
+    travelpost = post.filter(category__name__contains="Travel")
+
+    context = {
+        "travelpost": travelpost,
+    }
+
+    return render(request, 'travel.html', context)
+
+
+def media(request):
+    post = Post.objects.all()
+    mediapost = post.filter(category__name__contains="Media")
+
+    context = {
+        "mediapost": mediapost,
+    }
+
+    return render(request, 'media.html', context)
+
+
+def breaking(request):
+    post = Post.objects.all()
+    breakingpost = post.filter(category__name__contains="Breaking")
+
+    context = {
+        "breakingpost": breakingpost,
+    }
+
+    return render(request, 'breaking.html', context)
