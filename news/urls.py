@@ -14,4 +14,5 @@ urlpatterns = [
     path('travel', views.travel, name='travel'),
     path('media', views.media, name='media'),
     path('breaking', views.breaking, name='breaking'),
+    path('delete/<int:comment_id>', views.delete_comment, name='delete_comment'),
 ]

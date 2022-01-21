@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm
 from django.contrib import messages
 from django.db.models import Q
@@ -47,8 +47,10 @@ class PostDetail(View):
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('-created_on')
         liked = False
+        user = request.user
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
+
 
         return render(
             request,
@@ -58,7 +60,8 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
+                "user": str(user),
             },
         )
 
@@ -93,6 +96,15 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
+
+def delete_comment(request, comment_id):
+    """ To delete comments """
+    commentx = get_object_or_404(Comment, pk=comment_id)
+    commentx.delete()
+
+    messages.success(request, "Your comment has been removed successfully")
+    return redirect(reverse('home'))
 
 
 class PostLike(View):
