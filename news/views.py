@@ -11,7 +11,7 @@ class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = "index.html"
-    paginate_by = 6
+    paginate_by = 9
 
 
 def searchResults(request):
@@ -26,14 +26,10 @@ def searchResults(request):
                 return redirect(reverse('searchResults'))
 
             queries = Q(title__icontains=query) | Q(content__icontains=query)
-            print(queries)
             post = post.filter(queries)
 
-            print(post)
 
-            if post:
-                print("test")
-            else:
+            if not post:            
                 messages.error(request, "We could't find any posts by that name!")
 
     context = {
