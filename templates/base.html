@@ -11,87 +11,86 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="icon" type="image/png" href="/static/images/favicon.png">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/nikv5296/image/upload/v1642960225/favicon_c1wunl.png">
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top">
         <div class="nav-block">
             <div class="row g-0">
-                <div class="col-sm-12 col-lg-2">
+                <div class="col-sm-12 col-lg-2 col-md-12">
                     <div class="row g-0">
-                    <div class="col-10">
-                        <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-globe-europe logo" ></i><span  class="logod">Djang</span><span class="logon">News</span></a>
+                        <div class="col-10">
+                            <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-globe-europe logo"></i><span class="logod">Djang</span><span class="logon">News</span></a>
+                        </div>
+                        <div class="col-2">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"><i class="fas fa-bars ham"></i></span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="col-2">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"><i class="fas fa-bars ham"></i></span>
-                        </button>
-                    </div>
                 </div>
-                </div>
-                <div class="col-10 collapse navbar-collapse" id="navbarText">
-                <div class="col-3 col-md-5">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">                                           
-                        <li class="nav-item">
-                            <a class="nav-link text-white active" aria-current="page" href="{% url 'home' %}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-red" href="{% url 'breaking' %}">Breaking News</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Categories
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'world' %}">World</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{% url 'tech' %}">Tech</a></li>
-                                <li><a class="dropdown-item" href="{% url 'business' %}">Business</a></li>
-                                <li><a class="dropdown-item" href="{% url 'sport' %}">Sport</a></li>
-                                <li><a class="dropdown-item" href="{% url 'travel' %}">Travel</a></li>
-                                <li><a class="dropdown-item" href="{% url 'media' %}">Media and entertainment</a></li>
-                              </ul>
-                        </li>
-                    </ul>
-                    
-                </div>
-                <div class="col-lg-4 col-md-2 col-sm-12">
-                    <form class="d-flex" method="GET" action="{% url 'searchResults' %}">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
-                        <button class="btn btn-outline searchbutton" type="submit">Search</button>
-                    </form>  
-                </div>
-                <div class="col-3 col-md-3">
-                    <div class="collapse navbar-collapse" id="navbarText">
+                <div class="col-lg-9 col-md-2 collapse navbar-collapse" id="navbarText">
+                    <div class="col-3 col-md-5 col-lg-4">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            {% if user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
-                            </li>
-                            {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{% url 'account_signup' %}">Register</a>
+                                <a class="nav-link text-white active" aria-current="page" href="{% url 'home' %}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{% url 'account_login' %}">Login</a>
+                                <a class="nav-link text-red" href="{% url 'breaking' %}">Breaking News</a>
                             </li>
-                            {% endif %}                
-                        </ul> 
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Categories
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'world' %}">World</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="{% url 'tech' %}">Tech</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'business' %}">Business</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'sport' %}">Sport</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'travel' %}">Travel</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'media' %}">Media and entertainment</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-sm-8">
+                        <form class="d-flex" method="GET" action="{% url 'searchResults' %}">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                            <button class="btn btn-outline searchbutton" type="submit">Search</button>
+                        </form>
+                    </div>
+                    <div class="col-md-6 col-md-6 col-lg-3">
+                        <div class="collapse navbar-collapse" id="navbarText">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="{% url 'account_signup' %}">Register</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" href="{% url 'account_login' %}">Login</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </nav>
 
@@ -117,20 +116,59 @@
     <!-- Footer -->
     <footer class="footer mt-auto py-3 bg-dark">
         <p class="m-0 text-center text-white">© 2022 Nikola Vukomanović</p>
-        <p class="m-0 text-center text-white"><i class="fab fa-facebook-square ms-3"></i>
-            <i class="fab fa-twitter-square ms-3"></i>
-            <i class="fab fa-instagram-square ms-3"></i>
-            <i class="fab fa-youtube-square ms-3"></i></p>
+        <div class="row foot">
+            <div class="col-lg-4">
+                <h3 class="text-white">Categories</h3>
+                <ul">
+                    <li><a class="nav-item text-red" href="{% url 'breaking' %}">Breaking News</a></li>
+                    <li><a class="nav-item" href="{% url 'world' %}">World</a></li>
+                    <li><a class="nav-item" href="{% url 'tech' %}">Tech</a></li>
+                    <li><a class="nav-item" href="{% url 'business' %}">Business</a></li>
+                    <li><a class="nav-item" href="{% url 'sport' %}">Sport</a></li>
+                    <li><a class="nav-item" href="{% url 'travel' %}">Travel</a></li>
+                    <li><a class="nav-item" href="{% url 'media' %}">Media and entertainment</a></li>
+                    </ul>
+            </div>
+            <div class="col-lg-4">
+                <h3 class="text-white">Follow us</h3>
+                <ul>
+
+                    <li>
+                        <a href="https://www.youtube.com/" target="_blank" aria-label="go to out youtube page (opens in a new tab)">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.facebook.com/nikola.vukomanovic.94" target="_blank" aria-label="go to out facebook page (opens in a new tab)">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.instagram.com/nickolasvk/" target="_blank" aria-label="go to out instagram page (opens in a new tab)">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/NikolaVk" target="_blank" aria-label="go to out github page (opens in a new tab)">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </footer>
 
     <script>
-        setTimeout(function () {
+        setTimeout(function() {
             let messages = document.getElementById('msg');
             let alert = new bootstrap.Alert(messages);
             alert.close();
         }, 5500);
     </script>
-    
+
 </body>
 
 </html>

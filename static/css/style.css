@@ -42,13 +42,11 @@ body {
     position: absolute;
     bottom: 5%;
     min-width: 30%;
-    left: -2px;
-    background-color: #23BBBB;
+    left: 3px;
+    right: 3px;
 }
 
-.author {
-    color: white;
-    margin: 4px;
+.author-cat {
     text-transform: uppercase;
 }
 
@@ -80,24 +78,28 @@ body {
     height: 100%;
     width: 150%;
     background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
+    -webkit-transform: skew(45deg);
+    -moz-transform: skew(45deg);
+    transform: skew(45deg);
     z-index: 100;
 }
 
 .post-link {
     text-decoration: none;
-    color: #445261;
+    color: white;
 }
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: white;
 }
 
 .post-title {
     margin-top: 20%;
+    margin-left: 5%;
+}
+
+.post-category {
     margin-left: 5%;
 }
 
@@ -141,7 +143,7 @@ body {
     border: none;
 }
 
-.text-white{
+.text-white {
     color: white;
 }
 
@@ -167,27 +169,46 @@ body {
 .image-container {
     display: inline-block;
     overflow: hidden;
-  }
-  .image-container img {
+}
+
+.image-container img {
     display: block;
-    transition: transform .4s; 
-  }
-  .image-container:hover img {
+    transition: transform .4s;
+}
+
+.image-container:hover img {
     transform: scale(1.05);
     transform-origin: 50% 50%;
-  }
+}
 
-  .dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
- }
+}
 
- .nav-block {
-     width: 100%;
-     padding: 0 5px 0 5px;
- }
+.nav-block {
+    width: 100%;
+    padding: 0 5px 0 5px;
+}
 
- .ham {
+.ham {
     color: #fff;
     font-size: 30px;
- }
+}
+
+.comments {
+    border-bottom: 1px3 solid black;
+    box-shadow: 10px 14px 34px 0px rgba(0, 0, 0, 0.27);
+    -webkit-box-shadow: 10px 14px 34px 0px rgba(0, 0, 0, 0.27);
+    -moz-box-shadow: 10px 14px 34px 0px rgba(0, 0, 0, 0.27);
+}
+
+.foot {
+    margin: 10px;
+    text-align: center;
+}
+
+.foot i {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
