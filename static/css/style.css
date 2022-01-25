@@ -64,14 +64,20 @@ body {
 .masthead-text {
     color: black;
     position: relative;
-    height: 18vh;
+    height: 25vh;
 }
 
 .masthead-image {
     position: relative;
     overflow: hidden;
-    height: 33vh;
+    height: 50vh;
     overflow: hidden;
+    text-align: center;
+}
+
+.post-image {
+    max-width: 75%;
+    max-height: 100%;
 }
 
 /* .masthead-image:after {
@@ -317,8 +323,8 @@ body {
 }
 
 .catheading {
-    font-size: 7vh;
-    line-height: 150px;
+    font-size: 6vh;
+    vertical-align: middle;
 }
 
 .next-btn {
@@ -329,6 +335,9 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (max-width: 992px) {
@@ -338,17 +347,13 @@ body {
 }
 
 @media screen and (max-width: 800px) {
-    .catheading {
-        font-size: 4vh;
-        line-height: 150px;
+
+    .masthead-image {
+        height: 35vh;
     }
 }
 
 @media screen and (max-width: 450px) {
-    .catheading {
-        font-size: 3vh;
-        line-height: 150px;
-    }
 
     #id_body {
         width: 80vw;
@@ -360,10 +365,57 @@ body {
         margin: 10px;
     }
 
-    .catheading {
-        font-size: 2vh;
-        line-height: 150px;
+    .masthead-image {
+        height: 30vh;
     }
 
 
+}
+
+.outer-clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+}
+
+.clock {
+    width: 200px;
+}
+
+.clock_time {
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url(https://res.cloudinary.com/nikv5296/image/upload/v1643151716/clock_a2vwhn.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.clock_date {
+    text-align: center;
+}
+
+.clock_hourhand {
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.clock_minutehand {
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: absolute;
+}
+
+
+.clock_secondhand {
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: absolute;
 }

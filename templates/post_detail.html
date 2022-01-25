@@ -14,9 +14,9 @@
 <div class="col-12 masthead-image">
     <!-- The featured image URL goes in the src attribute -->
     {% if "placeholder" in post.featured_image.url %}
-    <img src="https://res.cloudinary.com/nikv5296/image/upload/v1642960918/pexels-anna-shvets-5217882_vhi6lh.jpg" width="70%">
+    <img class="post-image" src="https://res.cloudinary.com/nikv5296/image/upload/v1642960918/pexels-anna-shvets-5217882_vhi6lh.jpg">
     {% else %}
-    <img src=" {{ post.featured_image.url }}" width="100%">
+    <img class="post-image" src=" {{ post.featured_image.url }}">
     {% endif %}
 </div>
 

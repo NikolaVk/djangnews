@@ -93,6 +93,11 @@
             </div>
         </div>
     </nav>
+    <div class="col-12 outer-clock">
+        <div class="clock" id="id_clock">
+
+        </div>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -167,6 +172,29 @@
             let alert = new bootstrap.Alert(messages);
             alert.close();
         }, 5500);
+
+        // Load the clock script when the page finished loading
+        document.addEventListener('DOMContentLoaded', function(event) {
+            loadScript(`static/javascript/script.js`, function() {
+                initClock();
+            });
+        });
+
+        function loadScript(ScriptPath, callBack) {
+            var body = document.getElementsByTagName('body')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = ScriptPath;
+
+            // then bind the event to the callback function
+            // there are several events for cross browser compatibility
+            // script.onreadystatechange = callback;
+            script.onload = callBack;
+
+            // fire the loading
+            body.appendChild(script);
+
+        }
     </script>
 
 </body>
