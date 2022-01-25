@@ -22,8 +22,8 @@
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg bg-dark sticky-top">
-        <div class="nav-block">
+    <nav class="navbar navbar-expand-lg dark-bg sticky-top">
+        <div class="nav-block mobile-nav">
             <div class="row g-0">
                 <div class="col-sm-12 col-lg-2 col-md-12">
                     <div class="row g-0">
@@ -38,28 +38,28 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-2 collapse navbar-collapse" id="navbarText">
-                    <div class="col-3 col-md-5 col-lg-4">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <div class="col-sm-3 col-md-5 col-lg-4">
+                        <ul class="col-12 navbar-nav navul">
                             <li class="nav-item">
                                 <a class="nav-link text-white active" aria-current="page" href="{% url 'home' %}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-red" href="{% url 'breaking' %}">Breaking News</a>
+                                <a class="nav-link text-breaking" href="{% url 'breaking' %}">Breaking News</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Categories
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="{% url 'world' %}">World</a></li>
+                                    <li><a class="dropdown-item text-black" href="{% url 'world' %}">World</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="{% url 'tech' %}">Tech</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'business' %}">Business</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'sport' %}">Sport</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'travel' %}">Travel</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'media' %}">Media and entertainment</a></li>
+                                    <li><a class="dropdown-item text-black" href="{% url 'tech' %}">Tech</a></li>
+                                    <li><a class="dropdown-item text-black" href="{% url 'business' %}">Business</a></li>
+                                    <li><a class="dropdown-item text-black" href="{% url 'sport' %}">Sport</a></li>
+                                    <li><a class="dropdown-item text-black" href="{% url 'travel' %}">Travel</a></li>
+                                    <li><a class="dropdown-item text-black" href="{% url 'media' %}">Media and entertainment</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-md-6 col-md-6 col-lg-3">
                         <div class="collapse navbar-collapse" id="navbarText">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                 {% if user.is_authenticated %}
                                 <li class="nav-item">
                                     <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
@@ -114,51 +114,51 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 bg-dark">
-        <p class="m-0 text-center text-white">© 2022 Nikola Vukomanović</p>
-        <div class="row foot">
-            <div class="col-lg-4">
-                <h3 class="text-white">Categories</h3>
-                <ul">
-                    <li><a class="nav-item text-red" href="{% url 'breaking' %}">Breaking News</a></li>
-                    <li><a class="nav-item" href="{% url 'world' %}">World</a></li>
-                    <li><a class="nav-item" href="{% url 'tech' %}">Tech</a></li>
-                    <li><a class="nav-item" href="{% url 'business' %}">Business</a></li>
-                    <li><a class="nav-item" href="{% url 'sport' %}">Sport</a></li>
-                    <li><a class="nav-item" href="{% url 'travel' %}">Travel</a></li>
-                    <li><a class="nav-item" href="{% url 'media' %}">Media and entertainment</a></li>
-                    </ul>
+    <footer class="footer mt-auto py-3 dark-bg">
+        <div class="row g-0 justify-content-center foot">
+            <div class="col-lg-12 catfoot">
+                <h3 class="col-12 text-white">Categories:</h3>
+                <div class="row g-0">
+                    <div class="col-12 mb-3"><a class="text-breaking" href="{% url 'breaking' %}">Breaking News</a></div>
+                    <div class="col-lg-2 col-md-4 col-sm-12 mb-3"><a class="text-white" href="{% url 'world' %}">World</a></div>
+                    <div class="col-lg-2 col-md-4 col-sm-12 mb-3"><a class="text-white" href="{% url 'tech' %}">Tech</a></div>
+                    <div class="col-lg-2 col-md-4 col-sm-12 mb-3"><a class="text-white" href="{% url 'business' %}">Business</a></div>
+                    <div class="col-lg-2 col-md-4 col-sm-12 mb-3"><a class="text-white" href="{% url 'sport' %}">Sport</a></div>
+                    <div class="col-lg-2 col-md-4 col-sm-12 mb-3"><a class="text-white" href="{% url 'travel' %}">Travel</a></div>
+                    <div class="col-lg-2 col-md-4 col-sm-12 mb-3"><a class="text-white" href="{% url 'media' %}">Media and entertainment</a></div>
+                </div>
             </div>
             <div class="col-lg-4">
-                <h3 class="text-white">Follow us</h3>
-                <ul>
+                <h3 class="text-white">Follow us:</h3>
+                <ul class="row text-white justify-content-center list-group list-group-horizontal socials">
 
-                    <li>
-                        <a href="https://www.youtube.com/" target="_blank" aria-label="go to out youtube page (opens in a new tab)">
+                    <li class="col-3">
+                        <a class="text-white" href="https://www.youtube.com/" target="_blank" aria-label="go to out youtube page (opens in a new tab)">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="https://www.facebook.com/nikola.vukomanovic.94" target="_blank" aria-label="go to out facebook page (opens in a new tab)">
+                    <li class="col-3">
+                        <a class="text-white" href="https://www.facebook.com/nikola.vukomanovic.94" target="_blank" aria-label="go to out facebook page (opens in a new tab)">
                             <i class="fab fa-facebook"></i>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="https://www.instagram.com/nickolasvk/" target="_blank" aria-label="go to out instagram page (opens in a new tab)">
+                    <li class="col-3">
+                        <a class="text-white" href="https://www.instagram.com/nickolasvk/" target="_blank" aria-label="go to out instagram page (opens in a new tab)">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="https://github.com/NikolaVk" target="_blank" aria-label="go to out github page (opens in a new tab)">
+                    <li class="col-3">
+                        <a class="text-white" href="https://github.com/NikolaVk" target="_blank" aria-label="go to out github page (opens in a new tab)">
                             <i class="fab fa-github"></i>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
+        <p class="m-0 text-center text-white">© 2022 Nikola Vukomanović</p>
     </footer>
 
     <script>
