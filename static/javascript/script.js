@@ -14,7 +14,7 @@ function initClock() {
         clockTime.className = 'clock_time';
         clockDate.className = 'clock_date';
         clock_element.appendChild(clockTime);
-        clock_element.appendChild(clockDate);;
+        clock_element.appendChild(clockDate);
         hourHand.className = 'clock_hourhand';
         minuteHand.className = 'clock_minutehand';
         secondHand.className = 'clock_secondhand';
