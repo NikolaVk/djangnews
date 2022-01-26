@@ -20,8 +20,7 @@
 
 <body class="d-flex flex-column h-100 main-bg">
 
-    <!-- Navigation -->
-
+    <!-- Navigation Start -->
     <nav class="navbar navbar-expand-lg dark-bg sticky-top">
         <div class="nav-block mobile-nav">
             <div class="row g-0">
@@ -93,12 +92,15 @@
             </div>
         </div>
     </nav>
+    <!-- Navigation End -->
+    <!-- Clock Start -->
     <div class="col-12 outer-clock">
         <div class="clock" id="id_clock">
 
         </div>
     </div>
-
+    <!-- Clock End -->
+    <!-- Alert Message Start -->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -111,6 +113,7 @@
             </div>
         </div>
     </div>
+    <!-- Alert Message End -->
 
     <main class="flex-shrink-0 main-bg">
         {% block content %}
@@ -118,7 +121,7 @@
         {% endblock content %}
     </main>
 
-    <!-- Footer -->
+    <!-- Footer Start -->
     <footer class="footer mt-auto py-3 dark-bg">
         <div class="row g-0 justify-content-center foot">
             <div class="col-lg-12 catfoot">
@@ -165,7 +168,8 @@
         </div>
         <p class="m-0 text-center text-white">© 2022 Nikola Vukomanović</p>
     </footer>
-
+    <!-- Footer End -->
+    <!-- JavaScript Start -->
     <script>
         setTimeout(function() {
             let messages = document.getElementById('msg');
@@ -196,6 +200,8 @@
 
         }
     </script>
+    <!-- JavaScript End -->
+
 
 </body>
 

@@ -2,22 +2,7 @@ body {
     background-color: #F9FAFC;
 }
 
-.logo {
-    color: #E60026;
-    font-size: 30px;
-}
-
-.logod {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.logon {
-    color: #E60026;
-    font-size: 30px;
-    font-weight: bold;
-}
+/* General Colors Start */
 
 .light-bg {
     background-color: #fff;
@@ -31,94 +16,32 @@ body {
     background-color: white;
 }
 
-.card {
-    border: none;
-    background-color: transparent;
-}
+/* General Colors End */
+/*-------------------------------------------*/
+/* General Text Color Start */
 
-.image-container {
-    position: relative;
-}
-
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: 3px;
-    right: 3px;
-}
-
-.author-cat {
-    text-transform: uppercase;
-}
-
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 15vh;
-    width: 100%;
-}
-
-.masthead-text {
+.text-black {
     color: black;
-    position: relative;
-    height: 25vh;
+    font-weight: bold;
 }
 
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-    height: 50vh;
-    overflow: hidden;
-    text-align: center;
-}
-
-.post-image {
-    max-width: 75%;
-    max-height: 100%;
-}
-
-/* .masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: black;
-    -webkit-transform: skew(45deg);
-    -moz-transform: skew(45deg);
-    transform: skew(45deg);
-    z-index: 100;
-} */
-
-.post-link {
-    text-decoration: none;
+.text-white {
     color: white;
+    font-weight: bold;
 }
 
-.post-link:hover {
+.text-breaking {
     color: white;
+    font-weight: bold;
 }
 
-.page-link {
-    color: black;
+.text-breaking:hover {
+    color: #E60026;
 }
 
-.post-title {
-    margin-left: 5%;
-}
-
-.post-category {
-    margin-left: 5%;
-}
-
-.post-subtitle {
-    margin-left: 5%;
-    color: black;
-}
+/* General Text Color End */
+/*-------------------------------------------*/
+/* General Buttons Start */
 
 .btn-signup {
     background-color: white;
@@ -161,25 +84,6 @@ body {
     border: none;
 }
 
-.text-black {
-    color: black;
-    font-weight: bold;
-}
-
-.text-white {
-    color: white;
-    font-weight: bold;
-}
-
-.text-breaking {
-    color: white;
-    font-weight: bold;
-}
-
-.text-breaking:hover {
-    color: #E60026;
-}
-
 .searchbutton {
     color: white;
     border: 2px solid #E60026;
@@ -192,20 +96,34 @@ body {
     border: 2px solid #E60026;
 }
 
-.image-container {
-    display: inline-block;
-    overflow: hidden;
+.next-btn {
+    font-weight: bold;
 }
 
-.image-container img {
-    display: block;
-    transition: transform .4s;
+/* General Buttons End */
+/*-------------------------------------------*/
+/* Logo Start */
+
+.logo {
+    color: #E60026;
+    font-size: 30px;
 }
 
-.image-container:hover img {
-    transform: scale(1.05);
-    transform-origin: 50% 50%;
+.logod {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
 }
+
+.logon {
+    color: #E60026;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Logo End */
+/*-------------------------------------------*/
+/* Navigation Start */
 
 .dropdown:hover .dropdown-menu {
     display: block;
@@ -223,44 +141,66 @@ body {
     font-size: 30px;
 }
 
-.comments {
-    border-bottom: 1px3 solid black;
-    box-shadow: 10px 14px 34px 0px rgba(0, 0, 0, 0.27);
-    -webkit-box-shadow: 10px 14px 34px 0px rgba(0, 0, 0, 0.27);
-    -moz-box-shadow: 10px 14px 34px 0px rgba(0, 0, 0, 0.27);
-}
-
-.foot {
-    margin: 15px;
-    text-align: center;
-}
-
-.catfoot {
-    border-bottom: 1px solid white;
-}
-
-.foot i {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
 .navul {
     padding-left: 30px;
 }
 
-.socials ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+/* Navigation End */
+/*-------------------------------------------*/
+/* General Posts */
+
+.image-container {
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: 3px;
+    right: 3px;
+}
+
+.author-cat {
+    text-transform: uppercase;
+}
+
+.post-link {
+    text-decoration: none;
+    color: white;
+}
+
+.post-link:hover {
+    color: white;
+}
+
+.image-container {
+    display: inline-block;
     overflow: hidden;
-
 }
 
-.socials li {
-    float: left;
-    padding-left: 20px;
-    color: transparent;
+.image-container img {
+    display: block;
+    transition: transform .4s;
 }
+
+.image-container:hover img {
+    transform: scale(1.05);
+    transform-origin: 50% 50%;
+}
+
+.card-body {
+    border-bottom: 2px solid black;
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+/* General Posts End */
+/*-------------------------------------------*/
+/* Category Head Images Start */
 
 .breakingimg {
     background: url(https://res.cloudinary.com/nikv5296/image/upload/v1642980250/pexels-pixabay-162540_x50eo1.jpg) no-repeat center center;
@@ -326,17 +266,9 @@ body {
     text-align: center;
 }
 
-.card-body {
-    border-bottom: 2px solid black;
-}
-
 .catheading {
     font-size: 6vh;
     vertical-align: middle;
-}
-
-.next-btn {
-    font-weight: bold;
 }
 
 .h2-box {
@@ -348,37 +280,97 @@ body {
     justify-content: center;
 }
 
-@media screen and (max-width: 992px) {
-    .navbar-nav {
-        padding: 20px;
-    }
+/* Category Head Images End */
+/*-------------------------------------------*/
+/* Masthead - Post-Deatil Start */
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 15vh;
+    width: 100%;
 }
 
-@media screen and (max-width: 800px) {
-
-    .masthead-image {
-        height: 35vh;
-    }
+.masthead-text {
+    color: black;
+    position: relative;
+    height: 25vh;
 }
 
-@media screen and (max-width: 450px) {
-
-    #id_body {
-        width: 80vw;
-    }
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+    height: 50vh;
+    overflow: hidden;
+    text-align: center;
 }
 
-@media screen and (max-width: 350px) {
-    .mobile-nav {
-        margin: 10px;
-    }
+.post-image {
+    max-width: 75%;
+    max-height: 100%;
+}
 
-    .masthead-image {
-        height: 30vh;
-    }
+.page-link {
+    color: black;
+}
 
+.post-title {
+    margin-left: 5%;
+}
+
+.post-category {
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: black;
+}
+
+.comments {
+    border-bottom: 1px3 solid black;
+    box-shadow: 10px 14px 34px 0px rgba(0, 0, 0, 0.27);
+    -webkit-box-shadow: 10px 14px 34px 0px rgba(0, 0, 0, 0.27);
+    -moz-box-shadow: 10px 14px 34px 0px rgba(0, 0, 0, 0.27);
+}
+
+/* Masthead - Post-Deatil End */
+/*-------------------------------------------*/
+/* Footer Start */
+
+.foot {
+    margin: 15px;
+    text-align: center;
+}
+
+.catfoot {
+    border-bottom: 1px solid white;
+}
+
+.foot i {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.socials ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 
 }
+
+.socials li {
+    float: left;
+    padding-left: 20px;
+    color: transparent;
+}
+
+/* Footer End */
+/*-------------------------------------------*/
+/* Clock Start */
 
 .outer-clock {
     display: flex;
@@ -427,3 +419,41 @@ body {
     border-radius: 5px;
     position: absolute;
 }
+
+/* Clock End */
+/*-------------------------------------------*/
+/* MediaQueries Start */
+
+@media screen and (max-width: 992px) {
+    .navbar-nav {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .masthead-image {
+        height: 35vh;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    #id_body {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .mobile-nav {
+        margin: 10px;
+    }
+
+    .masthead-image {
+        height: 30vh;
+    }
+
+}
+
+/* MediaQueries Start */
+/*-------------------------------------------*/
