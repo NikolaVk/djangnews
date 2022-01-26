@@ -31,6 +31,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = ['djangnews.herokuapp.com', 'localhost']
 
 
@@ -52,7 +54,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_summernote',
     'news',
-  
+
 ]
 
 SITE_ID = 1
@@ -104,16 +106,16 @@ WSGI_APPLICATION = 'djangnews.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+# }
 
-#DATABASES = {
-#    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-#}
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

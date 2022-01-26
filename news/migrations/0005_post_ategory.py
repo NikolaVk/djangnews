@@ -7,13 +7,18 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('news', '0004_remove_category_friendly_name'),
+        ("news", "0004_remove_category_friendly_name"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='post',
-            name='ategory',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='news.category'),
+            model_name="post",
+            name="ategory",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="news.category",
+            ),
         ),
     ]

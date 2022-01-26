@@ -8,49 +8,48 @@ from django.db.models import Q
 
 
 class PostList(generic.ListView):
+    """ Paginate pages and sort posts by date """
     model = Post
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "index.html"
     paginate_by = 9
 
 
 def searchResults(request):
-
+    """ Search for terms within posts (Title/Text within post) """
     post = Post.objects.all()
     query = None
     if request.GET:
-        if 'q' in request.GET:
-            query = request.GET['q']
+        if "q" in request.GET:
+            query = request.GET["q"]
             if not query:
                 messages.error(request, "Please type something in")
-                return redirect(reverse('searchResults'))
+                return redirect(reverse("searchResults"))
 
             queries = Q(title__icontains=query) | Q(content__icontains=query)
             post = post.filter(queries)
 
-
-            if not post:            
-                messages.error(request, "We could't find any posts by that name!")
+            if not post:
+                messages.error(request, "We could't find \
+                                         any posts by that name!")
 
     context = {
-        'post': post,
-        'search_term': query,
+        "post": post,
+        "search_term": query,
     }
 
-    return render(request, 'searchResults.html', context)
+    return render(request, "searchResults.html", context)
 
 
 class PostDetail(View):
-
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('-created_on')
+        comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
         commenter = request.user
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-
 
         return render(
             request,
@@ -66,9 +65,10 @@ class PostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
+        """ Leave Comments Under Posts """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('-created_on')
+        comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -81,8 +81,8 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            messages.success(request, 'Your comment has been posted.')
-        
+            messages.success(request, "Your comment has been posted.")
+
         else:
             comment_form = CommentForm()
 
@@ -94,22 +94,22 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": True,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
             },
         )
 
 
 def delete_comment(request, comment_id):
-    """ To delete comments """
+    """ To Delete Comments """
     commentx = get_object_or_404(Comment, pk=comment_id)
     commentx.delete()
 
     messages.success(request, "Your comment has been removed successfully")
-    return redirect(reverse('home'))
+    return redirect(reverse("home"))
 
 
 class PostLike(View):
-
+    """ To Like Comments """
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -117,10 +117,11 @@ class PostLike(View):
         else:
             post.likes.add(request.user)
 
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        return HttpResponseRedirect(reverse("post_detail", args=[slug]))
 
 
 def tech(request):
+    """ Get All Articles With Tech Category """
     post = Post.objects.all()
     techpost = post.filter(category__name__contains="Tech")
 
@@ -128,10 +129,12 @@ def tech(request):
         "techpost": techpost,
     }
 
-    return render(request, 'tech.html', context)
+    return render(request, "tech.html", context)
 
 
 def world(request):
+    """ Get All Articles With World Category """
+
     post = Post.objects.all()
     worldpost = post.filter(category__name__contains="World")
 
@@ -139,9 +142,12 @@ def world(request):
         "worldpost": worldpost,
     }
 
-    return render(request, 'world.html', context)
+    return render(request, "world.html", context)
+
 
 def sport(request):
+    """ Get All Articles With Sport Category """
+
     post = Post.objects.all()
     sportpost = post.filter(category__name__contains="Sport")
 
@@ -149,10 +155,12 @@ def sport(request):
         "sportpost": sportpost,
     }
 
-    return render(request, 'sport.html', context)
+    return render(request, "sport.html", context)
 
 
 def business(request):
+    """ Get All Articles With Business Category """
+
     post = Post.objects.all()
     businesspost = post.filter(category__name__contains="Business")
 
@@ -160,10 +168,12 @@ def business(request):
         "businesspost": businesspost,
     }
 
-    return render(request, 'business.html', context)
+    return render(request, "business.html", context)
 
 
 def travel(request):
+    """ Get All Articles With Travel Category """
+
     post = Post.objects.all()
     travelpost = post.filter(category__name__contains="Travel")
 
@@ -171,10 +181,12 @@ def travel(request):
         "travelpost": travelpost,
     }
 
-    return render(request, 'travel.html', context)
+    return render(request, "travel.html", context)
 
 
 def media(request):
+    """ Get All Articles With Media And Entertainment Category """
+
     post = Post.objects.all()
     mediapost = post.filter(category__name__contains="Media")
 
@@ -182,10 +194,12 @@ def media(request):
         "mediapost": mediapost,
     }
 
-    return render(request, 'media.html', context)
+    return render(request, "media.html", context)
 
 
 def breaking(request):
+    """ Get All Articles With Breaking News Category """
+
     post = Post.objects.all()
     breakingpost = post.filter(category__name__contains="Breaking")
 
@@ -193,4 +207,4 @@ def breaking(request):
         "breakingpost": breakingpost,
     }
 
-    return render(request, 'breaking.html', context)
+    return render(request, "breaking.html", context)
