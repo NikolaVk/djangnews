@@ -318,6 +318,14 @@ body {
     text-align: center;
 }
 
+.searchimg {
+    background: url(https://res.cloudinary.com/nikv5296/image/upload/v1643153361/pexels-eren-li-7188801_iryp7u.jpg) no-repeat center center;
+    background-size: 100%;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+}
+
 .card-body {
     border-bottom: 2px solid black;
 }

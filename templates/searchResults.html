@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<H1>Search results</H1>
+<div class="searchimg">
+    <div class="h2-box">
+        <h2 class="text-white catheading">Search Results</h2>
+    </div>
+</div>
 
 
 <div class="container-fluid">
@@ -32,7 +36,6 @@
                                 <p class="author-cat card-text text-muted h6">Category: {{ post.category }}</p>
                             </div>
                         </a>
-                        <hr />
                     </div>
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
